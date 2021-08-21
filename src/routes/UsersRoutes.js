@@ -51,7 +51,7 @@ const generarJWT=(id,nombre)=>{
     return new Promise((resolve,reject)=>{
         const payload={id,nombre};
         jwt.sign(payload,'secret-phrase',{
-            expiresIn:'2h'
+            expiresIn:'2days'
         },(err,token)=>{
             if(err){
                 console.log(err);
