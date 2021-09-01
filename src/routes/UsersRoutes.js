@@ -63,7 +63,7 @@ const generarJWT=(id,nombre)=>{
 }
 
 app.post("/token",async(req,res)=>{
-    const token=req.header('x-token');
+    const {token}=req.body;
     if(!token){
         return res.status(401).json({
             ok:false,
