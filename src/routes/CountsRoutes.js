@@ -22,9 +22,9 @@ app.post("/counts",async(req,res)=>{
     }
 })
 
-app.put("/counts/:id", async (req, res) => {
-    if(req.params.id){
-        const usuario = await Usuarios.findOne({ where: { id: req.params.id } });
+app.put("/counts", async (req, res) => {
+    if(req.body.id){
+        const usuario = await Usuarios.findOne({ where: { id: req.body.id } });
         if (usuario) {
             const cuenta = await Cuentas.findOne({ where: { UserId: usuario.id } });
             if(cuenta && cuenta.monto>req.body.monto){
